@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aura Bento - Daily Ritual</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="app-header">
+        <h1>Bloom Daily</h1>
+        <p id="current-date"></p>
+    </header>
+
+    <div id="app-container">
+        <!-- Main Focus -->
+        <div class="bento-card main-focus">
+            <h2>Today's Big Rock</h2>
+            <input type="text" id="main-focus-input" placeholder="What's the one thing?">
+            <p style="margin-top: auto; font-size: 0.8rem; opacity: 0.6;">Focus on this until it's done.</p>
+        </div>
+
+        <!-- Small Tasks -->
+        <div class="bento-card tasks-small">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                <h2 style="margin-bottom: 0;">The Pebbles</h2>
+                <button id="add-task-btn" class="icon-btn">+</button>
+            </div>
+            <div id="small-tasks-container">
+                <!-- Tasks injected here -->
+            </div>
+        </div>
+
+        <!-- Water Tracker -->
+        <div class="bento-card water-tracker">
+            <h2>Hydration</h2>
+            <div id="glass-container" class="glass-container">
+                <!-- Glasses injected here -->
+            </div>
+            <div class="water-count-row">
+                <span class="water-count" id="water-count">0</span>
+                <span style="font-size: 0.7rem; opacity: 0.6;">Glasses</span>
+            </div>
+            <div class="water-controls">
+                <button class="water-btn" id="water-minus">-</button>
+                <button class="water-btn" id="water-plus">+</button>
+            </div>
+        </div>
+
+        <!-- Mood Tracker -->
+        <div class="bento-card mood-tracker">
+            <h2>Vibe Check</h2>
+            <div class="mood-options">
+                <div class="mood-btn" data-mood="calm" style="background: #bde0fe;"><span>Calm</span></div>
+                <div class="mood-btn" data-mood="happy" style="background: #ffafcc;"><span>Happy</span></div>
+                <div class="mood-btn" data-mood="focus" style="background: #cdb4db;"><span>Focus</span></div>
+                <div class="mood-btn" data-mood="tired" style="background: #a2d2ff;"><span>Tired</span></div>
+                <div class="mood-btn" data-mood="energetic" style="background: #ffc8dd;"><span>Bold</span></div>
+                <div class="mood-btn" data-mood="low" style="background: #efefef;"><span>Low</span></div>
+            </div>
+        </div>
+
+        <!-- Notes -->
+        <div class="bento-card notes-card">
+            <h2>Quick Notes</h2>
+            <textarea id="notes-input" placeholder="Brain dump here..."></textarea>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
