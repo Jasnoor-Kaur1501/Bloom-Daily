@@ -1,0 +1,297 @@
+:root {
+    --bg: #fff5f7;
+    --card-bg: rgba(255, 255, 255, 0.7);
+    --text: #4a3f44;
+    --accent: #ff8fa3;
+    --accent-light: #ffccd5;
+    --border: rgba(255, 143, 163, 0.2);
+    --shadow: 0 8px 32px rgba(255, 143, 163, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(135deg, #fff5f7 0%, #f0efff 100%);
+    color: var(--text);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.app-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.app-header h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--accent);
+    letter-spacing: -0.05em;
+    margin-bottom: 0.25rem;
+}
+
+.app-header p {
+    font-size: 0.9rem;
+    opacity: 0.6;
+    font-weight: 600;
+}
+
+#app-container {
+    width: 100%;
+    max-width: 1000px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 180px);
+    gap: 1.5rem;
+}
+
+.bento-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease;
+}
+
+.bento-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Specific Card Layouts */
+.main-focus {
+    grid-column: span 2;
+    grid-row: span 2;
+    background: linear-gradient(180deg, rgba(255,255,255,0.9) 0%, rgba(255,204,213,0.3) 100%);
+}
+
+.tasks-small {
+    grid-column: span 2;
+    grid-row: span 1;
+    overflow-y: auto;
+}
+
+.icon-btn {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 1px solid var(--accent);
+    background: transparent;
+    color: var(--accent);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    transition: all 0.2s;
+}
+
+.icon-btn:hover {
+    background: var(--accent);
+    color: white;
+}
+
+.water-tracker {
+    grid-column: span 1;
+    grid-row: span 1;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.mood-tracker {
+    grid-column: span 1;
+    grid-row: span 1;
+}
+
+.notes-card {
+    grid-column: span 2;
+    grid-row: span 1;
+}
+
+/* Typography & UI Elements */
+h2 {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    margin-bottom: 1rem;
+    font-weight: 800;
+}
+
+input[type="text"], textarea {
+    background: transparent;
+    border: none;
+    color: var(--text);
+    font-family: inherit;
+    outline: none;
+    width: 100%;
+}
+
+.main-focus input {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-top: 1rem;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+
+.task-item input[type="checkbox"] {
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--accent-light);
+    border-radius: 6px;
+    cursor: pointer;
+    position: relative;
+}
+
+.task-item input[type="checkbox"]:checked {
+    background: var(--accent);
+    border-color: var(--accent);
+}
+
+.task-item input[type="checkbox"]:checked::after {
+    content: '✓';
+    position: absolute;
+    color: white;
+    font-size: 12px;
+    left: 3px;
+    top: -1px;
+}
+
+.task-item input[type="text"] {
+    font-size: 0.9rem;
+}
+
+.task-item.completed input[type="text"] {
+    text-decoration: line-through;
+    opacity: 0.5;
+}
+
+/* Water UI */
+.glass-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-bottom: 0.5rem;
+    justify-content: center;
+}
+
+.glass-icon {
+    width: 12px;
+    height: 18px;
+    border: 1.5px solid var(--accent-light);
+    border-radius: 2px 2px 6px 6px;
+    position: relative;
+    overflow: hidden;
+}
+
+.glass-icon.filled {
+    background: var(--accent);
+    border-color: var(--accent);
+}
+
+.water-count-row {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.water-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.water-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background: var(--accent-light);
+    color: var(--accent);
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.water-count {
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+
+/* Mood UI */
+.mood-options {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+}
+
+.mood-btn {
+    height: 34px;
+    border-radius: 10px;
+    border: 2px solid transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.mood-btn span {
+    font-size: 0.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    pointer-events: none;
+    color: rgba(0,0,0,0.4);
+}
+
+.mood-btn.selected {
+    border-color: var(--text);
+    transform: scale(1.05);
+}
+
+.mood-btn.selected span {
+    color: var(--text);
+}
+
+textarea {
+    flex: 1;
+    resize: none;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+@media (max-width: 800px) {
+    #app-container {
+        display: flex;
+        flex-direction: column;
+    }
+    .bento-card {
+        height: auto;
+        min-height: 150px;
+    }
+}
